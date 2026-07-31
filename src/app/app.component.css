@@ -1,0 +1,54 @@
+nav{
+    background-color: black;
+    height: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 10px;
+}
+.left{
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+.left p{
+    font-size: 30px;
+    cursor: pointer;
+    margin-left:23px ;
+}
+.left img{
+    cursor: pointer;
+}
+hr{
+    height:56px;
+    margin-left: ;
+}
+.left a{
+    text-decoration: none;
+    color: white;
+    font-size: 23px;
+    transition: .35s;
+}
+.left a:hover{
+    color: orange;
+}
+.right{
+    display: flex;
+    align-items: center;
+}
+
+.right .btn{
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(255, 166, 0);
+    cursor: pointer;
+}
+button svg{
+    height: 20px;
+    padding: 2px;
+    position: relative;
+    top: 4px;
+    color: white;
+}
+
