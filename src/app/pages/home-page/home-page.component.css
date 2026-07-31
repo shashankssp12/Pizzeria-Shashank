@@ -1,0 +1,36 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 10px;
+    margin: 0 50px;
+}
+#heading1{
+    text-align: center;
+}
+.wrapper .box{
+    /* background-color: beige; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 23px;
+}
+.text{
+    padding: 20px;
+}
+#img1{
+    height: 350px;
+}
+#img2{
+    height: 350px;
+}
+#img3{
+    height: 350px;
+}
+
+.box3 .text{
+    position: relative;
+    margin-right: 30%;
+    font-size: 34px;
+
+}
