@@ -1,9 +1,12 @@
 // import { Pizza } from '../models/pizza.model';
 
+import { Pizza } from "../models/pizza.model"
+
 // In a real app this would come from a backend API (usually via HttpClient).
 // Since we don't have a backend for this project, we keep it as a plain
 // TypeScript array and "fake" the data fetch inside a service.
-export const PIZZA_DATA: Pizza[] = [
+
+export const PIZZA_DATA : Pizza[]=[
   {
     id: '0001',
     type: 'veg',
