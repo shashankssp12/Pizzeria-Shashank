@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-shopping-cart-page',
@@ -7,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrl: './shopping-cart-page.component.css'
 })
 export class ShoppingCartPageComponent {
+  cart = inject(CartService)
+  
 
+  showData(){
+    console.log(this.cart.items());
+  }
+  increaseItem(id:string){
+    this.cart.increaseQty(id);
+  }
+  decreaseItem(id:string){
+    this.cart.decreaseQty(id);
+  }
+
+  
 }

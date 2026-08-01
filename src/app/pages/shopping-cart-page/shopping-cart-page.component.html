@@ -1,39 +1,44 @@
 <div id="wrapper">
+
     <div class="left side">
         <p class="heading-myCart">My Cart</p>
         <hr>
         <div class="items-holder">
+            <!-- items show here for cart -->
+             @for (item of this.cart.items(); track $index) {
             <div class="item">
-                <img src="https://thumb9.shutterstock.com/display_pic_with_logo/376831/127528958/stock-photo-delicious-italian-pizza-over-white-127528958.jpg"
+                <img [src]="item.image"
                     height="100px" alt="">
-                <img src="/veg.png" height="30px" alt="">
+                <img [src]="'/'+item.type+'.png'" height="30px" alt="">
                 <div class="name-price">
-                    <h2>Paneer Tikka</h2>
-                    <p style="font-size: 18px;">₹290</p>
+                    <h2>{{item.name}}</h2>
+                    <p style="font-size: 20px;">{{item.price}}</p>
                 </div>
 
 
 
                 <!-- input and buttons -->
                 <div class="set-qty">
-                    <button>-</button>
-                    <input type="text" value="2" size="1">
-                    <button>+</button>
+                    <button id="reduce" (click)="decreaseItem(item.cartId)">-</button>
+                    <input type="text" [value]="item.qty" size="1">
+                    <button id="increase" (click)="increaseItem(item.cartId)" >+</button>
                 </div>
                 <!-- ends -->
 
 
-                <div class="priceNqty" style="font-weight: bold ;">₹580</div>
+                <div class="priceNqty" style="font-weight: bold ;">₹{{item.price * item.qty}}</div>
                 <!-- delete icon -->
                 <a class="item-delete">
                     <i class="fa-solid fa-trash-can"></i>
                 </a>
             </div>
+        }
         </div>
         <div class="subtotal">
-            <p><Span>Sub Total: </Span>₹930</p>
+            <p><Span>Sub Total: </Span>₹{{this.cart.subTotal()}}</p>
         </div>
     </div>
+
     <!-- right side -->
     <div class="right ">
         <div class="right-card-wrapper side">
@@ -45,7 +50,7 @@
         </div>
         <div class="ingredients-price do-flex">
             <div class="dropdown">Ingredients</div>
-            <h3>Rs.45</h3>
+            <h3>₹45</h3>
         </div>
         <hr>
         <div class="bottom-left do-flex">
@@ -56,7 +61,7 @@
        
         <div class="buttons">
             <button id="pay">Pay</button>
-            <button id="clear">Clear</button>
+            <button id="clear" (click)="showData()">Clear</button>
         </div>
     </div>
 
