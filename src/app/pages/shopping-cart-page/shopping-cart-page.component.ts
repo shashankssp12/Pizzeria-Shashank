@@ -20,6 +20,8 @@ export class ShoppingCartPageComponent {
   decreaseItem(id:string){
     this.cart.decreaseQty(id);
   }
-
+  deleteThisItem(id:string){
+    this.cart.deleteItem(id);
+  }
   
 }

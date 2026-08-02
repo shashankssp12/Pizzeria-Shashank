@@ -13,9 +13,14 @@ export class CartService {
   constructor() {
   }
 
-  addPizza(pizza:{name:string; image:string;price:number, type:'veg'|'nonveg'}):void{
+  addPizza(pizza:{name:string; id:string; image:string;price:number, type:'veg'|'nonveg'}):void{
+    const existing = this.itemsSignal().find((item)=>item.pizzaId===pizza.id);
+    if(existing){
+      this.itemsSignal.update((items)=>items.map((item)=>item.pizzaId ===pizza.id?{...item, qty:item.qty+1}: item ))
+    }else{
     const newItem:CartItem ={
       cartId:crypto.randomUUID(),
+      pizzaId:pizza.id,
       name:pizza.name,
       image:pizza.image,
       price:pizza.price,
@@ -24,6 +29,7 @@ export class CartService {
     };
 
     this.itemsSignal.update((current)=>[...current,newItem]);
+  }
   }
 
   increaseQty(id:string){
@@ -39,5 +45,7 @@ export class CartService {
   totalItemCount = computed(()=>
   this.itemsSignal().reduce((totalQty,EachObjInSignalArray)=>totalQty+EachObjInSignalArray.qty,0)
   );
-
+  deleteItem(id:string){
+    this.itemsSignal.update((itemsOfSignalArray)=>itemsOfSignalArray.filter((eachItem)=>eachItem.cartId !==id))
+  } 
 }

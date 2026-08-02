@@ -28,7 +28,7 @@
 
                 <div class="priceNqty" style="font-weight: bold ;">₹{{item.price * item.qty}}</div>
                 <!-- delete icon -->
-                <a class="item-delete">
+                <a class="item-delete" (click)="deleteThisItem(item.cartId)">
                     <i class="fa-solid fa-trash-can"></i>
                 </a>
             </div>
