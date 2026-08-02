@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart-page',
@@ -9,7 +10,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class ShoppingCartPageComponent {
   cart = inject(CartService)
-  
+  router = inject(Router);
 
   showData(){
     console.log(this.cart.items());
@@ -24,4 +25,28 @@ export class ShoppingCartPageComponent {
     this.cart.deleteItem(id);
   }
   
+
+  pizzaSubtotal(){
+    return this.cart.items().reduce((sum,obj)=> obj.type?sum+(obj.price*obj.qty):sum ,0);
+  }
+    customPizzaSubtotal(){
+    return this.cart.items().reduce((sum,obj)=> !obj.type?sum+(obj.price*obj.qty):sum ,0);
+  }
+  grandTotal(){
+    return this.pizzaSubtotal() + this.customPizzaSubtotal();
+  }
+  payCart(){
+    if(this.grandTotal()>0){
+      alert("Thanks for shopping!\n You paid total amount of "+this.grandTotal());
+      this.allClear();
+      this.router.navigate(['order-pizza']);
+    }
+    else{
+      alert("Add items in your cart!")
+    }
+  }
+  allClear(){
+    this.cart.clearCartData();
+  }
+
 }

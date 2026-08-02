@@ -1,5 +1,6 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { CartItem } from '../models/cart.model';
+import { Ingredients } from '../models/ingredients';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { CartItem } from '../models/cart.model';
 export class CartService {
   private itemsSignal = signal<CartItem[]>([]);
   items = this.itemsSignal.asReadonly();
-
+// for cutsom pizza, page unchecking all the items after add button --> we need to empty the signal itemsSelected from build-pizza-page
 
 
   constructor() {
@@ -31,6 +32,18 @@ export class CartService {
     this.itemsSignal.update((current)=>[...current,newItem]);
   }
   }
+  addCustomPizza(pizza:{price:number}): void{
+    const newItem:CartItem={
+      cartId:crypto.randomUUID(),
+      name:"Custom Pizza",
+      price:pizza.price,
+      image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxcINVDDim8x-fLq6BryiR_GP8oLQrHQnoQIDAyANExw&s=10",
+      qty:1,
+
+    }
+    this.itemsSignal.update((current)=>[...current, newItem]);
+    alert("Custom Pizza Added to Cart");
+  }
 
   increaseQty(id:string){
     this.itemsSignal.update((itemsOfSignalArray)=> itemsOfSignalArray.map((item)=>item.cartId===id?{...item,qty:item.qty+1}:item));
@@ -49,8 +62,7 @@ export class CartService {
     this.itemsSignal.update((itemsOfSignalArray)=>itemsOfSignalArray.filter((eachItem)=>eachItem.cartId !==id))
   } 
 
-  // build your own pizza page functions
-  totalIngredients(){
-    alert("I need to be worked upon")
+  clearCartData(){
+    this.itemsSignal.set([]);
   }
 }

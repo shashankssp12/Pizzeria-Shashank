@@ -20,7 +20,9 @@
                     </td>
                     <td>₹{{data.price}}</td>
                     <td>
-                        <input type="checkbox" name="">
+                        <input type="checkbox"
+                        [checked]="itemsSelected().includes(data.id)"
+                        (change)="selectedId(data.id)" name="">
                     </td>
                 </tr>
                 }
@@ -28,8 +30,11 @@
         </table>
 
         <div class="table-footer">
-            <div class="totalCost">Total Cost:₹{{this.cartSingal.totalIngredients()}}</div>
-            <button class="build" type="button">Build Pizza</button>
+            <div class="totalCost">
+                Total Cost:₹ {{currentTotalCost()}}
+
+            </div>
+            <button class="build" type="button" (click)="addPizza()">Build Pizza</button>
         </div>
     </div>
 </div>

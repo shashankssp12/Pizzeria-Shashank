@@ -9,7 +9,11 @@
             <div class="item">
                 <img [src]="item.image"
                     height="100px" alt="">
+                <!-- when there is no type -->
+                 
+                @if (item.type) {
                 <img [src]="'/'+item.type+'.png'" height="30px" alt="">
+                }
                 <div class="name-price">
                     <h2>{{item.name}}</h2>
                     <p style="font-size: 20px;">₹{{item.price}}</p>
@@ -45,23 +49,23 @@
              <h2>The total amount of</h2>
              <hr>
         <div class="pizza-price do-flex">
-            <p style="font-size: large;">Pizza Costed:</p>
-            <h3>₹983</h3>
+            <p style="font-size: large;">Menu Pizza:</p>
+            <h3>₹{{pizzaSubtotal()}}</h3>
         </div>
         <div class="ingredients-price do-flex">
             <div class="dropdown">Ingredients</div>
-            <h3>₹45</h3>
+            <h3>₹{{customPizzaSubtotal()}}</h3>
         </div>
         <hr>
         <div class="bottom-left do-flex">
                 <h2>Total:</h2>
-                <h2>₹983.99</h2>
+                <h2>₹{{grandTotal()}}</h2>
         </div>
         </div>
        
         <div class="buttons">
-            <button id="pay">Pay</button>
-            <button id="clear" (click)="showData()">Clear</button>
+            <button id="pay" (click)="payCart()">Pay</button>
+            <button id="clear" (click)="allClear()">Clear</button>
         </div>
     </div>
 
