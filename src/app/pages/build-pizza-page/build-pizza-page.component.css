@@ -1,0 +1,78 @@
+.container {
+    /* background-color: #666; */
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 5px 20%;
+  margin-bottom: 30px;
+}
+.table-shell {
+  min-width: 600px;
+}
+
+table {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+}
+th,
+td {
+  border: 1px solid #d9d9d9;
+  padding: 12px 14px;
+}
+#img-name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+}
+td {
+  text-align: center;
+}
+
+thead th {
+  background-color: #f4f4f4;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+input {
+  width: 18px;
+  height: 18px;
+  accent-color: #666;
+}
+
+.table-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+  border: 1px solid #d9d9d9;
+  border-top: 0;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 12px 14px;
+}
+
+.totalCost {
+  font-size: 25px;
+  font-weight: bold;
+  color: blue;
+}
+
+.build {
+  padding: 12px;
+  font-size: 23px;
+  background-color: orange;
+}

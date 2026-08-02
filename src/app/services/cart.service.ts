@@ -21,7 +21,7 @@ export class CartService {
     const newItem:CartItem ={
       cartId:crypto.randomUUID(),
       pizzaId:pizza.id,
-      name:pizza.name,
+      name:pizza.name, 
       image:pizza.image,
       price:pizza.price,
       type:pizza.type,
@@ -48,4 +48,9 @@ export class CartService {
   deleteItem(id:string){
     this.itemsSignal.update((itemsOfSignalArray)=>itemsOfSignalArray.filter((eachItem)=>eachItem.cartId !==id))
   } 
+
+  // build your own pizza page functions
+  totalIngredients(){
+    alert("I need to be worked upon")
+  }
 }

@@ -1,7 +1,9 @@
-import { Ingredient } from '../models/ingredient.model';
+import { Ingredients } from "../models/ingredients";
 
-export const INGREDIENTS_DATA: Ingredient[] = [
-  {
+export const INGREDIENTS_DATA : Ingredients[] = [
+
+
+{
     id: 101,
     tname: 'Pepperoni',
     price: 110,
@@ -27,7 +29,7 @@ export const INGREDIENTS_DATA: Ingredient[] = [
     tname: 'Black olive',
     price: 50,
     image:
-      'https://thumb7.shutterstock.com/display_pic_with_logo/137002/244097551/stock-photo-black-cut-olive-rings-isolated-on-white-244097551.jpg',
+      'https://thumb1.shutterstock.com/display_pic_with_logo/180783430/755093356/stock-photo-black-beans-grain-on-white-background-755093356.jpg',
   },
   {
     id: 105,
@@ -92,4 +94,10 @@ export const INGREDIENTS_DATA: Ingredient[] = [
     image:
       'https://thumb7.shutterstock.com/display_pic_with_logo/3102608/706329457/stock-photo-sweet-corn-in-wooden-bowl-and-spoon-isolated-on-white-background-706329457.jpg',
   },
-];
+
+
+
+]
+
+
+

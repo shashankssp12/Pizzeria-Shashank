@@ -1,1 +1,35 @@
-<p>build-pizza-page works!</p>
+<div class="container">
+    <i>*Pizzeria now gives you options to build your own pizza. Customize your pizza by choosing ingredients from the
+        list given below</i>
+
+    <div class="table-shell">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                    <th>Prices</th>
+                    <th>Selected</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (data of ingredients_data; track data.id) {
+                <tr>
+                    <td id="img-name">
+                        <img [src]="data.image" height="70px" width="70px" [alt]="data.tname">
+                        <h3>{{data.tname}}</h3>
+                    </td>
+                    <td>₹{{data.price}}</td>
+                    <td>
+                        <input type="checkbox" name="">
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="table-footer">
+            <div class="totalCost">Total Cost:₹{{this.cartSingal.totalIngredients()}}</div>
+            <button class="build" type="button">Build Pizza</button>
+        </div>
+    </div>
+</div>
